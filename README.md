@@ -4,7 +4,7 @@
 ```bash
 # Perform the next commands in the termanal/cmd
 git config --global user.name "Name Surname"
-git config --global user.email name_surname@epam.com
+git config --global user.email name_surname@gmail.com
 
 # Also for Windows based OSes it's important to set the next config:
 git config --global core.autocrlf true
@@ -18,8 +18,6 @@ git config --global push.default current
 # as Vim and Nano has issues on Windows
 git config --global core.editor notepad
 ```
-
-**P.S.** Usually such Git configuration is common for most projects but If you have some other projects not connected to EPAM or with another configuration you may set all these settings with flag `--local` instead of `--global` to avoid configuration conflicts with other projects. In this case it's necessary to clone the repository first and navigate to it.
 
 ## 1.2 Generate SSH key and put its public part into GitLab
 
@@ -61,8 +59,8 @@ nvm use 16.13.0
 
 ```bash
 # Create some project folder and navigate into it:
-mkdir epam
-cd epam
+mkdir directory
+cd directory
 
 # Clone Client repository:
 git clone <YOUR_REPO_URL>
