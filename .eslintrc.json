@@ -1,0 +1,62 @@
+{
+	"env": {
+		"es2021": true,
+		"node": true,
+		"jest": true
+	},
+	"extends": [
+		"airbnb-base",
+		"airbnb-typescript/base",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:eslint-comments/recommended",
+		"plugin:jest/recommended",
+		"plugin:promise/recommended",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.eslint.json"
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"eslint-comments",
+		"jest",
+		"sort-imports-es6-autofix",
+		"promise",
+		"prettier"
+	],
+	"rules": {
+		"no-console": "off",
+		"no-debugger": "warn",
+		"class-methods-use-this": "off",
+		"no-mixed-spaces-and-tabs": "off",
+		"no-unused-vars": [
+			"warn",
+			{ "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+		],
+		"no-param-reassign": "error",
+		"camelcase": "error",
+		"no-duplicate-imports": "error",
+		"no-undef": "off",
+		"sort-imports-es6-autofix/sort-imports-es6": [
+			2,
+			{
+				"ignoreCase": false,
+				"ignoreMemberSort": false,
+				"memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+			}
+		],
+		"prettier/prettier": "error",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-use-before-define": [
+			"error",
+			{
+				"functions": false,
+				"classes": true,
+				"variables": true,
+				"typedefs": true
+			}
+		],
+		"import/no-extraneous-dependencies": "off"
+	}
+}

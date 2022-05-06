@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: BTD Project
+  description: Sample NodeJS BTD spec
+  version: 1.0.0
+
+servers:
+  - url: /
+
+security:
+  - BearerAuth: []
+
+paths:
+  /example:
+    get:
+      tags:
+        - Example
+      summary: Get entities
+      security:
+        - BearerAuth: []
+      description: Return entities collection
+      parameters:
+       - $ref: '#/components/parameters/nameQueryParameter'
+      responses:
+        '200':
+          description: 'Successful response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entities'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+ 
+components:
+  schemas:
+    Entities:
+      type: array
+      items:
+        $ref: "#/components/schemas/Entity"
+    Entity:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        name:
+          type: string
+          example: Jonh Doe
+          
+    InternalServerError:
+      type: object
+      properties:
+        status: 
+          type: integer
+          enum:
+           - 500
+        error:
+          type: string
+          example: 'internal-server-error'
+        message:
+          type: string
+          example: 'Something went wrong'
+        extraDetails:
+          type: string
+          example: 'Extra error details'
+
+  responses:
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/InternalServerError'
+            
+  parameters:
+    nameQueryParameter:
+      name: name
+      description: Filter entities by name
+      in: query
+      required: false
+      schema:
+        type: integer
+        example: 10
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
